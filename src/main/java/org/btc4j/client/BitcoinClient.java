@@ -34,6 +34,7 @@ import org.btc4j.core.BitcoinApi;
 import org.btc4j.core.BitcoinBlock;
 import org.btc4j.core.BitcoinConstant;
 import org.btc4j.core.BitcoinException;
+import org.btc4j.core.BitcoinLastBlock;
 import org.btc4j.core.BitcoinMining;
 import org.btc4j.core.BitcoinNodeOperationEnum;
 import org.btc4j.core.BitcoinPeer;
@@ -349,7 +350,7 @@ public class BitcoinClient implements BitcoinApi {
 	}
 
 	@Override
-	public List<String> listSinceBlock(String blockHash, int targetConfirms)
+	public BitcoinLastBlock listSinceBlock(String blockHash, int targetConfirms)
 			throws BitcoinException {
 		throw new BitcoinException(BitcoinConstant.BTC4J_ERROR_CODE,
 				BitcoinConstant.BTC4J_ERROR_MESSAGE + ": "
