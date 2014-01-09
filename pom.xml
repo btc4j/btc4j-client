@@ -4,4 +4,45 @@
 	<groupId>org.btc4j</groupId>
 	<artifactId>btc4j-client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.version>3.1</maven.compiler.version>
+		<jdk.version>1.7</jdk.version>
+		<btc4j.core.version>0.0.1-SNAPSHOT</btc4j.core.version>
+		<junit.version>4.11</junit.version>
+	</properties>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compiler.version}</version>
+					<configuration>
+						<source>${jdk.version}</source>
+						<target>${jdk.version}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.btc4j</groupId>
+			<artifactId>btc4j-core</artifactId>
+			<version>${btc4j.core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>btc4j-repo-snapshots</id>
+			<url>https://github.com/btc4j/btc4j-repo/snapshots</url>
+		</repository>
+	</repositories>
 </project>
