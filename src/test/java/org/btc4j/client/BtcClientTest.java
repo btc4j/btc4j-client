@@ -27,17 +27,17 @@ package org.btc4j.client;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import org.btc4j.core.BitcoinException;
+import org.btc4j.core.BtcException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class BitcoinClientTest {
-	private static BitcoinClient BITCOINC;
+public class BtcClientTest {
+	private static BtcClient BITCOINC;
 
 	@BeforeClass
 	public static void testSetup() throws Exception {
-		BITCOINC = new BitcoinClient();
+		BITCOINC = new BtcClient();
 	}
 
 	@AfterClass
@@ -48,7 +48,7 @@ public class BitcoinClientTest {
 	}
 
 	@Test
-	public void help() throws BitcoinException {
+	public void help() throws BtcException {
 		String help = BITCOINC.help();
 		assertNotNull(help);
 		assertTrue(help.length() >= 0);
