@@ -10,11 +10,11 @@ btc4j-client is free software under [The MIT License (MIT)](http://opensource.or
 
 Maven pom.xml dependency:
 ```xml
-	<dependency>
-		<groupId>org.btc4j</groupId>
-		<artifactId>btc4j-client</artifactId>
-		<version>0.0.3-SNAPSHOT</version>
-	</dependency>
+<dependency>
+	<groupId>org.btc4j</groupId>
+	<artifactId>btc4j-client</artifactId>
+	<version>0.0.3-SNAPSHOT</version>
+</dependency>
 ```
 
 Issues
