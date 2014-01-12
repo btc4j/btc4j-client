@@ -26,8 +26,6 @@ package org.btc4j.client;
 
 import java.io.File;
 import java.util.List;
-import java.util.Map;
-
 import org.btc4j.core.BtcAccount;
 import org.btc4j.core.BtcAddress;
 import org.btc4j.core.BtcApi;
@@ -259,7 +257,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String getTransaction(String transactionId) throws BtcException {
+	public BtcTransaction getTransaction(String transactionId) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -312,7 +310,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public Map<String, BtcAccount> listAccounts(int minConfirms)
+	public List<BtcAccount> listAccounts(int minConfirms)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -320,7 +318,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public List<String> listAddressGroupings() throws BtcException {
+	public List<BtcAddress> listAddressGroupings() throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
