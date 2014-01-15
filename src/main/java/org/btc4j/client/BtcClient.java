@@ -26,23 +26,25 @@ package org.btc4j.client;
 
 import java.io.File;
 import java.util.List;
+
 import org.btc4j.core.BtcAccount;
 import org.btc4j.core.BtcAddress;
 import org.btc4j.core.BtcApi;
 import org.btc4j.core.BtcBlock;
 import org.btc4j.core.BtcException;
 import org.btc4j.core.BtcLastBlock;
-import org.btc4j.core.BtcMining;
+import org.btc4j.core.BtcMiningInfo;
+import org.btc4j.core.BtcMultiSignatureAddress;
 import org.btc4j.core.BtcNodeOperation;
 import org.btc4j.core.BtcPeer;
-import org.btc4j.core.BtcStatus;
+import org.btc4j.core.BtcInfo;
 import org.btc4j.core.BtcTransaction;
 import org.btc4j.core.BtcTransactionOutputSet;
 
 public class BtcClient implements BtcApi {
 
 	@Override
-	public void addMultiSignatureAddress(int required, List<String> keys,
+	public String addMultiSignatureAddress(int required, List<String> keys,
 			String account) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -65,7 +67,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String createMultiSignatureAddress(int required, List<String> keys)
+	public BtcMultiSignatureAddress createMultiSignatureAddress(int required, List<String> keys)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -198,14 +200,14 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BtcStatus getInformation() throws BtcException {
+	public BtcInfo getInformation() throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
 	}
 
 	@Override
-	public BtcMining getMiningInformation() throws BtcException {
+	public BtcMiningInfo getMiningInformation() throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
