@@ -40,13 +40,15 @@ import org.btc4j.core.BtcMultiSignatureAddress;
 import org.btc4j.core.BtcNode;
 import org.btc4j.core.BtcPeer;
 import org.btc4j.core.BtcInfo;
+import org.btc4j.core.BtcRawTransaction;
 import org.btc4j.core.BtcTransaction;
+import org.btc4j.core.BtcTransactionOutput;
 import org.btc4j.core.BtcTransactionOutputSet;
 
 public class BtcClient implements BtcApi {
 
 	@Override
-	public String addMultiSignatureAddress(int required, List<String> keys,
+	public String addMultiSignatureAddress(long required, List<String> keys,
 			String account) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -69,8 +71,8 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BtcMultiSignatureAddress createMultiSignatureAddress(int required, List<String> keys)
-			throws BtcException {
+	public BtcMultiSignatureAddress createMultiSignatureAddress(long required,
+			List<String> keys) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -85,7 +87,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String decodeRawTransaction(String transactionId)
+	public BtcRawTransaction decodeRawTransaction(String hex)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -130,7 +132,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BigDecimal getBalance(String account, int minConfirms)
+	public BigDecimal getBalance(String account, long minConfirms)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -145,14 +147,14 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public int getBlockCount() throws BtcException {
+	public long getBlockCount() throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
 	}
 
 	@Override
-	public String getBlockHash(int index) throws BtcException {
+	public String getBlockHash(long index) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -167,7 +169,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public int getConnectionCount() throws BtcException {
+	public long getConnectionCount() throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -188,7 +190,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public int getHashesPerSecond() throws BtcException {
+	public long getHashesPerSecond() throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -230,7 +232,15 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String getRawTransaction(String transactionId, boolean verbose)
+	public BtcRawTransaction getRawTransaction(String transactionId,
+			boolean verbose) throws BtcException {
+		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
+				BtcException.BTC4J_ERROR_MESSAGE + ": "
+						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
+	}
+
+	@Override
+	public BigDecimal getReceivedByAccount(String account, long minConfirms)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -238,7 +248,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BigDecimal getReceivedByAccount(String account, int minConfirms)
+	public BigDecimal getReceivedByAddress(String address, long minConfirms)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -246,7 +256,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BigDecimal getReceivedByAddress(String address, int minConfirms)
+	public BtcTransaction getTransaction(String transactionId)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -254,14 +264,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BtcTransaction getTransaction(String transactionId) throws BtcException {
-		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
-				BtcException.BTC4J_ERROR_MESSAGE + ": "
-						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
-	}
-
-	@Override
-	public String getTransactionOutput(String transactionId, int n,
+	public BtcTransactionOutput getTransactionOutput(String transactionId, long index,
 			boolean includeMemoryPool) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -307,8 +310,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public List<BtcAccount> listAccounts(int minConfirms)
-			throws BtcException {
+	public List<BtcAccount> listAccounts(long minConfirms) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -329,7 +331,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public List<BtcAccount> listReceivedByAccount(int minConfirms,
+	public List<BtcAccount> listReceivedByAccount(long minConfirms,
 			boolean includeEmpty) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -337,7 +339,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public List<BtcAddress> listReceivedByAddress(int minConfirms,
+	public List<BtcAddress> listReceivedByAddress(long minConfirms,
 			boolean includeEmpty) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -345,7 +347,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BtcLastBlock listSinceBlock(String blockHash, int targetConfirms)
+	public BtcLastBlock listSinceBlock(String blockHash, long targetConfirms)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -353,15 +355,15 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public List<BtcTransaction> listTransactions(String account, int count, int from)
-			throws BtcException {
+	public List<BtcTransaction> listTransactions(String account, long count,
+			long from) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
 	}
 
 	@Override
-	public List<String> listUnspent(int minConfirms, int maxConfirms)
+	public List<String> listUnspent(long minConfirms, long maxConfirms)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -378,16 +380,16 @@ public class BtcClient implements BtcApi {
 
 	@Override
 	public void move(String fromAccount, String toAccount, BigDecimal amount,
-			int minConfirms, String comment) throws BtcException {
+			long minConfirms, String comment) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
 	}
 
 	@Override
-	public String sendFrom(String fromAccount, String toAddress, BigDecimal amount,
-			int minConfirms, String commentFrom, String commentTo)
-			throws BtcException {
+	public String sendFrom(String fromAccount, String toAddress,
+			BigDecimal amount, long minConfirms, String commentFrom,
+			String commentTo) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -395,7 +397,7 @@ public class BtcClient implements BtcApi {
 
 	@Override
 	public String sendMany(String fromAccount, List<Object> addresses,
-			int minConfirms, String commentFrom, String commentTo)
+			long minConfirms, String commentFrom, String commentTo)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -403,8 +405,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public void sendRawTransaction(String transactionId)
-			throws BtcException {
+	public void sendRawTransaction(String transactionId) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -419,15 +420,14 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public void setAccount(String address, String account)
-			throws BtcException {
+	public void setAccount(String address, String account) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
 	}
 
 	@Override
-	public void setGenerate(boolean generate, int generateProcessorsLimit)
+	public void setGenerate(boolean generate, long generateProcessorsLimit)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -442,8 +442,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public void signMessage(String address, String message)
-			throws BtcException {
+	public void signMessage(String address, String message) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -470,8 +469,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BtcAddress validateAddress(String address)
-			throws BtcException {
+	public BtcAddress validateAddress(String address) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
