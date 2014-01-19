@@ -27,6 +27,7 @@ package org.btc4j.client;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import org.btc4j.core.BtcAccount;
 import org.btc4j.core.BtcAddedNode;
@@ -42,7 +43,6 @@ import org.btc4j.core.BtcPeer;
 import org.btc4j.core.BtcInfo;
 import org.btc4j.core.BtcRawTransaction;
 import org.btc4j.core.BtcTransaction;
-import org.btc4j.core.BtcTransactionOutput;
 import org.btc4j.core.BtcTransactionOutputSet;
 
 public class BtcClient implements BtcApi {
@@ -264,7 +264,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BtcTransactionOutput getTransactionOutput(String transactionId, long index,
+	public String getTransactionOutput(String transactionId, long index,
 			boolean includeMemoryPool) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -310,7 +310,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public List<BtcAccount> listAccounts(long minConfirms) throws BtcException {
+	public Map<String, BtcAccount> listAccounts(long minConfirms) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -442,7 +442,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public void signMessage(String address, String message) throws BtcException {
+	public String signMessage(String address, String message) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -476,7 +476,30 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String verifyMessage(String address, String signature, String message)
+	public boolean verifyMessage(String address, String signature, String message)
+			throws BtcException {
+		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
+				BtcException.BTC4J_ERROR_MESSAGE + ": "
+						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
+	}
+	
+	@Override
+	public void walletLock() throws BtcException {
+		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
+				BtcException.BTC4J_ERROR_MESSAGE + ": "
+						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
+	}
+
+	@Override
+	public void walletPassphrase(String passphrase, long timeout)
+			throws BtcException {
+		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
+				BtcException.BTC4J_ERROR_MESSAGE + ": "
+						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
+	}
+
+	@Override
+	public void walletPassphraseChange(String passphrase, String newPassphrase)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
