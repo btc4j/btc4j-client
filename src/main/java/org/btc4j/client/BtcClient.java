@@ -379,7 +379,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public void move(String fromAccount, String toAccount, BigDecimal amount,
+	public boolean move(String account, String toAccount, BigDecimal amount,
 			long minConfirms, String comment) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -387,8 +387,8 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String sendFrom(String fromAccount, String toAddress,
-			BigDecimal amount, long minConfirms, String commentFrom,
+	public String sendFrom(String account, String address,
+			BigDecimal amount, long minConfirms, String comment,
 			String commentTo) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -396,8 +396,8 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String sendMany(String fromAccount, List<Object> addresses,
-			long minConfirms, String commentFrom, String commentTo)
+	public String sendMany(String account, Map<String, BigDecimal> amounts,
+			long minConfirms, String comment, String commentTo)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -412,8 +412,8 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String sendToAddress(String toAddress, BigDecimal amount,
-			String commentFrom, String commentTo) throws BtcException {
+	public String sendToAddress(String address, BigDecimal amount,
+			String comment, String commentTo) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
