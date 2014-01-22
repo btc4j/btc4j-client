@@ -1,8 +1,13 @@
 Bitcoin Java Client (btc4j-client)
 ==================================
-Open source Java implementation of the Bitcoin client.
+Type-safe, open source Java implementation of the Bitcoin client.
 
 Development build status: [![Build Status](https://travis-ci.org/btc4j/btc4j-client.png?branch=master)](https://travis-ci.org/btc4j/btc4j-client)
+
+btc4j-client uses:
+* [Bitcoin Java Core Components (org.btc4j.core)] (http://btc4j.github.io/btc4j-core)
+
+Development status: Not yet implemented
 
 Using btc4j-client
 ------------------
