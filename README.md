@@ -7,7 +7,7 @@ Development build status: [![Build Status](https://travis-ci.org/btc4j/btc4j-cli
 btc4j-client uses:
 * [Bitcoin Java Core Components (org.btc4j.core)] (http://btc4j.github.io/btc4j-core)
 
-Development status: Not yet implemented
+Development status: Not yet implemented.
 
 Using btc4j-client
 ------------------
@@ -21,6 +21,7 @@ Maven pom.xml dependency:
 	<version>0.0.3-SNAPSHOT</version>
 </dependency>
 ```
+or, download artifacts directly from https://github.com/btc4j/btc4j-repo/tree/master/btc4j-client.
 
 Issues
 ------
