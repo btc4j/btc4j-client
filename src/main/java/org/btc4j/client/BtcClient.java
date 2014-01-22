@@ -397,7 +397,7 @@ public class BtcClient implements BtcApi {
 
 	@Override
 	public String sendMany(String account, Map<String, BigDecimal> amounts,
-			long minConfirms, String comment, String commentTo)
+			long minConfirms, String comment)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
