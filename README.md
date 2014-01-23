@@ -1,6 +1,6 @@
 Bitcoin Java P2P Client
 =======================
-Type-safe, open source Java implementation of the Bitcoin client.
+Open source Java implementation of the Bitcoin P2P client.
 
 Development build status: [![Build Status](https://travis-ci.org/btc4j/btc4j-client.png?branch=master)](https://travis-ci.org/btc4j/btc4j-client)
 
