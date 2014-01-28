@@ -163,7 +163,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BtcBlockTemplate getBlockTemplate(List<String> capabilities, BtcBlockTemplate.Mode mode) throws BtcException {
+	public BtcBlockTemplate getBlockTemplate(List<BtcBlockTemplate.Capability> capabilities, BtcBlockTemplate.Mode mode) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
