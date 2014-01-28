@@ -34,6 +34,7 @@ import org.btc4j.core.BtcAddedNode;
 import org.btc4j.core.BtcAddress;
 import org.btc4j.core.BtcApi;
 import org.btc4j.core.BtcBlock;
+import org.btc4j.core.BtcBlockTemplate;
 import org.btc4j.core.BtcException;
 import org.btc4j.core.BtcLastBlock;
 import org.btc4j.core.BtcMiningInfo;
@@ -44,6 +45,7 @@ import org.btc4j.core.BtcInfo;
 import org.btc4j.core.BtcRawTransaction;
 import org.btc4j.core.BtcTransaction;
 import org.btc4j.core.BtcTransactionOutputSet;
+import org.btc4j.core.BtcWork;
 
 public class BtcClient implements BtcApi {
 
@@ -161,7 +163,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String getBlockTemplate(String params) throws BtcException {
+	public BtcBlockTemplate getBlockTemplate(List<String> capabilities, BtcBlockTemplate.Mode mode) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -280,7 +282,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String getWork(String data) throws BtcException {
+	public BtcWork getWork(String data) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
