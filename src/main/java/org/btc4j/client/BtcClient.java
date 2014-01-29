@@ -34,6 +34,7 @@ import org.btc4j.core.BtcAddedNode;
 import org.btc4j.core.BtcAddress;
 import org.btc4j.core.BtcApi;
 import org.btc4j.core.BtcBlock;
+import org.btc4j.core.BtcBlockSubmission;
 import org.btc4j.core.BtcBlockTemplate;
 import org.btc4j.core.BtcException;
 import org.btc4j.core.BtcLastBlock;
@@ -463,7 +464,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public void submitBlock(String data, List<Object> params)
+	public BtcBlockSubmission submitBlock(String data, String workId, Map<String, String> params)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
