@@ -45,7 +45,6 @@ import org.btc4j.core.BtcPeer;
 import org.btc4j.core.BtcInfo;
 import org.btc4j.core.BtcRawTransaction;
 import org.btc4j.core.BtcTransaction;
-import org.btc4j.core.BtcTransactionInput;
 import org.btc4j.core.BtcTransactionOutput;
 import org.btc4j.core.BtcTransactionOutputSet;
 import org.btc4j.core.BtcWork;
@@ -368,7 +367,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public List<BtcTransactionInput> listUnspent(long minConfirms, long maxConfirms)
+	public List<BtcTransactionOutput> listUnspent(long minConfirms, long maxConfirms)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
