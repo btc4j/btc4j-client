@@ -41,12 +41,13 @@ import org.btc4j.core.BtcLastBlock;
 import org.btc4j.core.BtcMiningInfo;
 import org.btc4j.core.BtcMultiSignatureAddress;
 import org.btc4j.core.BtcNode;
+import org.btc4j.core.BtcOutput;
+import org.btc4j.core.BtcOutputPart;
+import org.btc4j.core.BtcOutputSet;
 import org.btc4j.core.BtcPeer;
 import org.btc4j.core.BtcInfo;
 import org.btc4j.core.BtcRawTransaction;
 import org.btc4j.core.BtcTransaction;
-import org.btc4j.core.BtcTransactionOutput;
-import org.btc4j.core.BtcTransactionOutputSet;
 import org.btc4j.core.BtcWork;
 
 public class BtcClient implements BtcApi {
@@ -83,8 +84,8 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public String createRawTransaction(List<Object> transactionIds,
-			List<Object> addresses) throws BtcException {
+	public String createRawTransaction(List<BtcOutputPart> outputs,
+			Map<String, BigDecimal> amounts) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -268,7 +269,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BtcTransactionOutput getTransactionOutput(String transactionId, long index,
+	public BtcOutput getTransactionOutput(String transactionId, long index,
 			boolean includeMemoryPool) throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -276,7 +277,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BtcTransactionOutputSet getTransactionOutputSetInformation()
+	public BtcOutputSet getTransactionOutputSetInformation()
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -328,7 +329,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public List<String> listLockUnspent() throws BtcException {
+	public List<BtcOutput> listLockUnspent() throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
 						+ BtcException.BTC4J_ERROR_DATA_NOT_IMPLEMENTED);
@@ -351,7 +352,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public BtcLastBlock listSinceBlock(String blockHash, long targetConfirms)
+	public BtcLastBlock listSinceBlock(String hash, long targetConfirms)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -367,7 +368,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public List<BtcTransactionOutput> listUnspent(long minConfirms, long maxConfirms)
+	public List<BtcOutput> listUnspent(long minConfirms, long maxConfirms)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
@@ -375,7 +376,7 @@ public class BtcClient implements BtcApi {
 	}
 
 	@Override
-	public void lockUnspent(boolean unlock, List<Object> outputs)
+	public void lockUnspent(boolean unlock, List<BtcOutputPart> outputs)
 			throws BtcException {
 		throw new BtcException(BtcException.BTC4J_ERROR_CODE,
 				BtcException.BTC4J_ERROR_MESSAGE + ": "
