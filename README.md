@@ -21,8 +21,6 @@ Maven pom.xml dependency:
 	<version>0.0.3-SNAPSHOT</version>
 </dependency>
 ```
-or, download artifacts directly from https://github.com/btc4j/btc4j-repo/tree/master/btc4j-client.
-
 Issues
 ------
 Report bugs, issues, or suggestions: https://github.com/btc4j/btc4j-client/issues.
