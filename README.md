@@ -18,7 +18,7 @@ Maven pom.xml dependency:
 <dependency>
 	<groupId>org.btc4j</groupId>
 	<artifactId>btc4j-client</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 </dependency>
 ```
 Issues
